@@ -1,6 +1,7 @@
 package pe.edu.unfv.example;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -42,7 +43,6 @@ class ExampleTest {
 	void testcheckPositivo() {
 
 		// Given => teniendo
-		Example example = new Example();
 		int numero = 9;
 		
 		// When => cuando
@@ -56,7 +56,6 @@ class ExampleTest {
 	void testcheckPositivoError() {
 
 		// Given => teniendo
-		Example example = new Example();
 		int numero = -9;		
 		
 		// Then => entonces
@@ -69,7 +68,6 @@ class ExampleTest {
 	void testContarLetraA() {
 
 		// Given => teniendo
-		Example example = new Example();
 		String cadena = "Pachamama";
 		
 		// When => cuando
@@ -84,8 +82,7 @@ class ExampleTest {
 	@Test
 	void testContieneElemento() {
 
-		// Given => teniendo
-		Example example = new Example();
+		// Given => teniendo		
 		List<String> lista = new ArrayList<>();
 		lista.add("Rosa Nautica");
 		lista.add("El muelle");
@@ -102,6 +99,71 @@ class ExampleTest {
 		
 		// Then => entonces
 		assertNotNull(result);		
+		assertTrue(result);
+	}
+	
+	@Test
+	void testRevertirCadena() {
+
+		// Given => teniendo
+		String cadena = "Pachamama";
+		
+		// When => cuando
+		String result = example.revertirCadena(cadena);
+		
+		// Then => entonces
+		assertNotNull(result);	
+		assertEquals("amamahcaP", result);
+	}
+	
+	@Test
+	void testFactorialError() {
+
+		// Given => teniendo
+		int numero = -9;		
+		
+		// Then => entonces
+		assertThrows(IllegalArgumentException.class, () -> {
+			example.factorial(numero);
+		});
+	}
+	
+	@Test
+	void testFactorial() {
+
+		// Given => teniendo
+		int numero = 2;
+		
+		// When => cuando
+		long result = example.factorial(numero);
+		
+		// Then => entonces
+		assertEquals(2, result);
+	}
+	
+	@Test
+	void testEsPrimoMenorIgualUno() {
+
+		// Given => teniendo
+		int numero = 1;
+		
+		// When => cuando
+		boolean result = example.esPrimo(numero);
+		
+		// Then => entonces
+		assertFalse(result);
+	}
+	
+	@Test
+	void testEsPrimoMayorUno() {
+
+		// Given => teniendo
+		int numero = 2;
+		
+		// When => cuando
+		boolean result = example.esPrimo(numero);
+		
+		// Then => entonces
 		assertTrue(result);
 	}
 }
