@@ -1,7 +1,7 @@
 package pe.edu.unfv.example;
 
-import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Example {
 
@@ -61,11 +61,48 @@ public class Example {
 			return false;
 		}
 		
-		for (int i = 2; i <= numero; i++) {
+		for (int i = 2; i * i <= numero; i++) {
 			if(numero % i == 0) {
 				return false;
 			}
 		}
 		return true;
+	}
+	
+	//8. Metodo que simula un retraso y retorna un mensaje
+	@SuppressWarnings("unused")
+	public String mensajeConRetraso() throws InterruptedException{
+		
+		Thread.sleep(5000);
+		return "Listo despues de un retraso";
+	}
+	
+	//9. Metodo para convertir una lista de enteros a lista de strings	
+	public List<String> convertirAsString(List<Integer> lista) {
+				
+		return lista.stream()
+				.map(String::valueOf)
+				.collect(Collectors.toList());
+	}
+	
+	//10. Media que calcula una lista de enteros
+	public double calcularMedia(List<Integer> lista) {
+		
+		if(lista == null || lista.isEmpty()) {
+			throw new IllegalArgumentException("Factorial no definido para numeros negativos");
+		}
+		
+		return lista.stream()
+				.mapToInt(Integer::intValue)
+				.average()
+				.getAsDouble();
+	}
+	
+	//11. Metodo para compartir una lista de enteros a lista de strings
+	public String convertirListAsString(List<String> lista) {
+		
+		return lista.stream()
+				.map(String::toUpperCase)
+				.collect(Collectors.joining(","));
 	}
 }
