@@ -3,7 +3,6 @@ package pe.edu.unfv.example;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
-import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -247,7 +246,8 @@ class ExampleTest {
 		resultEsperado.add("35");
 		
 		// Then => entonces
-		assertIterableEquals(resultEsperado,result);
+		//assertIterableEquals(resultEsperado,result);
+		assertEquals(resultEsperado, result);
 	}
 	
 	@Test
