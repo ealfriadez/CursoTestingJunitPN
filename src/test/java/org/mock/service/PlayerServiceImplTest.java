@@ -20,8 +20,7 @@ class PlayerServiceImplTest {
 
 		// When -> Cuando
 		Mockito.when(playerRepositoryImpl.findAll())
-				.thenReturn(List.of()
-						);
+				.thenReturn("");
 		List<Player> result = playerServiceImpl.findAll();
 
 		// Then -> entonces
