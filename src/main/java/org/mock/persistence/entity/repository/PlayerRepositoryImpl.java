@@ -7,6 +7,7 @@ import org.mock.persistence.entity.Player;
 
 public class PlayerRepositoryImpl implements IPlayerRepository{
 
+	/*
 	private List<Player> playerDatabase = new ArrayList<>(List.of(
           new Player(1L, "Lionel Messi", "Inter Miami", "Delantero"),
           new Player(2L, "Cristiano Ronaldo", "Al Nassr", "Delantero"),
@@ -15,6 +16,9 @@ public class PlayerRepositoryImpl implements IPlayerRepository{
           new Player(5L, "Kevin De Bruyne", "Manchester City", "Volante"),
           new Player(6L, "Virgil van Dijk", "Liverpool", "Defensa")
 	));
+	*/
+	
+	private List<Player> playerDatabase = new ArrayList<>();
 	
 	@Override
 	public List<Player> findAll() {
